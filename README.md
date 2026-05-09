@@ -8,22 +8,49 @@ resources:
 
 ## Contents
 
-| Section                              |
-| ------------------------------------ |
-| [History](#history)                  |
-| [Assignment](#assignment)            |
-| [Choose Your Path](#choose-your-path)|
-| [Requirements](#requirements)        |
-| [File Structure](#structure)         |
-| [Getting Started](#getting-started)  |
-| [Next Steps](#next-steps)            |
-| [Final Steps](#final-steps)          |
-| [Resources](#resources)              |
-| [Issues](#issues)                    |
+| Section                                  |
+| ---------------------------------------- |
+| [History](#history)                      |
+| [What You'll Build](#what-youll-build)   |
+| [Quickstart](#quickstart)                |
+| [Assignment](#assignment)                |
+| [Choose Your Path](#choose-your-path)    |
+| [Requirements](#requirements)            |
+| [File Structure](#structure)             |
+| [Getting Started](#getting-started)      |
+| [Next Steps](#next-steps)                |
+| [Final Steps](#final-steps)              |
+| [Resources](#resources)                  |
+| [Issues](#issues)                        |
 
 ## History
 
 Welcome to TTPR! Every semester, a student index page is created. It looks something like [this](https://hessvacio.com/). Links from this page go to individual profiles, which look like [this](https://hessvacio.com/pages/museummultiverse.html).
+
+## What You'll Build
+
+**One tile**, on the class index page (this repo's `index.html`), for the student you're paired with. Clicking the tile takes you either to:
+
+- a new in-repo profile page that you wrote (**Path A**), **or**
+- the student's deployed portfolio site from the [`html-student-portfolio`](https://github.com/ttpr-lgcc/html-student-portfolio) lab (**Path B**).
+
+That's the entire deliverable. To see what the finished thing looks like, open `index.html` in a browser **right now** and look at the existing "Hessvacio Hassan" tile. By the end of this lab your tile should sit next to it.
+
+> **Tip:** to open it, find `index.html` in Finder/File Explorer, right-click → Open With → your browser. No server, no build step.
+
+## Quickstart
+
+The whole flow, in 7 steps. Each one has a longer section below — but skim this first so you can see the whole arc before you start.
+
+1. **Fork** this repo. *One person per table* clicks the Fork button on GitHub and shares the new fork's URL with the table.
+2. Everyone at the table **clones the fork** (not the original) to their laptop.
+3. Each person `git checkout -b <their-student-name>` to make a **branch** named after the student they're profiling (e.g. `zoe-perez`). **Never work on `main`/`master`.**
+4. **Pick a path** ([A or B](#choose-your-path)) and add the matching files: an HTML page + 3 pictures (Path A), or just 1 index picture (Path B).
+5. **Edit `index.html`** — duplicate the existing student `<li class="home-blog-post">` block and fill in your student's info.
+6. `git add` → `git commit` → `git push` your branch. Then your table picks **one branch** and merges everyone else's branches into it (resolving conflicts in `index.html`).
+7. Open a **pull request** from that combined branch back to the original repo.
+
+If at any point you're not sure where you are in those 7 steps, come back here.
 
 ## Assignment
 
@@ -122,15 +149,20 @@ The structure of this project looks something like this:
 
 - Figure out who is going to write whose profile.
 
-- ![fork](http://ironboard-curriculum-content.s3.amazonaws.com/web-development/deploy-on-day-1/fork.png)
-- Have one person at your table [fork](https://help.github.com/articles/fork-a-repo) this repo. This person should then send the link to their fork to everyone sitting at their table.
+- **One person at your table** [forks](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repo (top-right "Fork" button on GitHub). They send the URL of their new fork to the rest of the table — it'll look like `https://github.com/<their-username>/deploy-on-day-1-ttpr`.
 
-- ![clone](http://ironboard-curriculum-content.s3.amazonaws.com/web-development/deploy-on-day-1/clone.png)
-- Everyone at the table should then [clone](http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository#Cloning-an-Existing-Repository) this forked repo.
+- **Everyone else at the table** then [clones](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository#_git_cloning) **that fork** (not the original repo) to their laptop:
+
+  ```sh
+  git clone https://github.com/<table-member's-username>/deploy-on-day-1-ttpr.git
+  cd deploy-on-day-1-ttpr
+  ```
+
+  > **Heads up:** the *fork's* URL has your tablemate's username in it, not `ttpr-lgcc` or whatever the original repo lives under. If you clone the original by mistake, you won't be able to push your branch.
 
 ### Individual Instructions
 
-Now that you have the repo, you'll want to get into it. Remember [cd](http://linux.about.com/od/commands/a/Example-Uses-Of-The-Command-Cd.htm)? When you type `pwd` into your terminal and the last part of the text that gets returned is `deploy-on-day-1...` you're in the right place. **NOTE In all the hypothetical examples, we're writing a profile for Zoe Perez.**
+Now that you have the repo, you'll want to get into it. `cd` into the cloned folder (e.g. `cd deploy-on-day-1-ttpr`). When you type `pwd` into your terminal and the last part of the text that gets returned is `deploy-on-day-1...` you're in the right place. **NOTE: In all the hypothetical examples below, we're writing a profile for Zoe Perez.**
 
 Take a look at `index.html` and `students/student_name.html` in the browser. You can do this many ways but one is by opening finder and right clicking on index.html. Then click on "Open with" then the name of your favorite browser.
 
@@ -155,16 +187,21 @@ The next steps depend on which path you picked above.
 
 ##### Path A — In-repo profile
 
-- In this new branch, make a new HTML file in the `students/` folder. The file name should be the name of the student you're creating the profile for. Use the file `student_name.html` to see an example of what a profile's HTML could look like.
+- In this new branch, make a new HTML file in the `students/` folder. The file name should be the name of the student you're creating the profile for. **Copy** the contents of `student_name.html` into your new file as a starting template.
 
   - For instance, we would create a file `zoe_perez.html` in the main `students` folder.
 
 - Still in this branch you created, add the three photos detailed above to the `img/students` folder. The student you're writing the profile for may have to email you their desired pictures or send you links to them, etc.
 
   - For instance, we would add the pictures titled `zoe_perez_background.jpg`, `zoe_perez_index.jpg`, and `zoe_perez_profile.jpg` to the `students` folder that is inside the `img` folder.
-  - File endings are case senstive. When adding an \<image\> tag, make sure that the image source is identical to the name of the image file.
 
-- Once you've completed the profile, open up `index.html`. Use the prexisting template as a model and add a section for your fellow student. Both `<a href>` attributes in the tile should point at `students/<their_name>.html`.
+- Once you've completed the profile, open up `index.html`. Use the preexisting template as a model and add a section for your fellow student. Both `<a href>` attributes in the tile should point at `students/<their_name>.html`.
+
+> **⚠️ File-naming rules — read these, they're the #1 source of broken pages:**
+>
+> 1. **Filenames are case-sensitive on GitHub Pages.** `Zoe_Perez.jpg` and `zoe_perez.jpg` are different files. Pick one convention (lowercase + underscores is easiest) and match the `<img src>` to it *exactly*, including the extension. Locally on macOS this often "works" because the local filesystem is case-insensitive — but it'll 404 once deployed.
+> 2. **Do not rename or overwrite `student_name.html`.** It's the template everyone copies from. If you save your work over it, you'll trigger merge conflicts for every other person at your table. *Copy* it to a new file, *edit the copy*.
+> 3. **Don't put your files in the wrong folder.** The HTML profile goes in `students/`. The pictures go in `img/students/`. The `<img src>` paths in your profile should be relative — e.g. `../img/students/zoe_perez_profile.jpg`.
 
 ##### Path B — Linked deployed portfolio
 
@@ -194,8 +231,8 @@ The next steps depend on which path you picked above.
     - For instance, if we're on the branch zoe-perez, we're going to push to zoe-perez.
 
 - To confirm this push worked you can do two things:
-  - Type `git branch -a` which will show the remote branch on github.com you just created when you pushed.
-  - You could also go to the url of the forked repo. Notice the section that looks like ![branches](http://ironboard-curriculum-content.s3.amazonaws.com/web-development/deploy-on-day-1/branches.png). You should be able to click on that arrow and to see a dropdown. From this dropdown, select the name of the branch you've been working on.
+  - Type `git branch -a` — your new branch should appear with a `remotes/origin/` prefix (e.g. `remotes/origin/zoe-perez`).
+  - Or go to the URL of the forked repo on github.com and click the **branch dropdown** (the button near the top-left of the file list, usually labeled `main`). Your branch name should be in the list — select it to view your work on the web.
 
 ## Next Steps
 
@@ -207,40 +244,78 @@ Think about the best way to merge all the branches together. Should one person d
 
 ### Merge Conflicts
 
-When [merging](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging#Basic-Merging), [merge conflicts](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging#Basic-Merge-Conflicts) can happen. Generally they look like:
+When [merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) two branches that both touched `index.html`, git will spit out something like:
 
 ```text
-> git branch
-  └── master
-> git merge zoe-perez
-  └── Auto-merging index.html
-  └── CONFLICT (content): Merge conflict in index.html
-  └── Automatic merge failed; fix conflicts and then commit the result.
+$ git merge zoe-perez
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-This just means that you will have to open the files where there are merge conflicts, in this case `index.html`, and find the part that looks like:
+**Don't panic.** This is the expected outcome — every branch added a tile to the same file in roughly the same place, so git can't tell which to keep. **It wants both.** Your job is to tell it that.
 
-```text
+Open `index.html` in your editor. Search for `<<<<<<<`. You'll find a region that looks like this (the names will differ):
+
+```html
+<ul>
+
 <<<<<<< HEAD
-content here
+  <!-- Begin Student -->
+  <li class="home-blog-post">
+    ... Hessvacio's tile ...
+  </li>
+  <!-- End Student -->
 =======
-other content here
+  <!-- Begin Student -->
+  <li class="home-blog-post">
+    ... Zoe's tile ...
+  </li>
+  <!-- End Student -->
 >>>>>>> zoe-perez
+
+</ul>
 ```
 
-Just decide which one you want to keep or if you want to keep both. Then delete the parts you don't want and delete the `<<<<HEAD`, `======`, and `>>>>>` parts.
+For *this lab specifically*, you almost always want to **keep both tiles** — that's the whole point. So delete the three conflict markers (`<<<<<<< HEAD`, `=======`, `>>>>>>> zoe-perez`) and leave both `<li>` blocks in place:
 
-Remember, if you have multiple files with merge conflicts, you'll have to repeat this process with each file. Once you're done selecting which code to retain, `git add` and `git commit` these changes. Now when you type `git status`, your terminal should not display "You have unmerged paths."
+```html
+<ul>
+
+  <!-- Begin Student -->
+  <li class="home-blog-post">
+    ... Hessvacio's tile ...
+  </li>
+  <!-- End Student -->
+
+  <!-- Begin Student -->
+  <li class="home-blog-post">
+    ... Zoe's tile ...
+  </li>
+  <!-- End Student -->
+
+</ul>
+```
+
+Save the file. Then:
+
+```sh
+git add index.html
+git commit            # leave the auto-generated merge message, just save and quit
+```
+
+Repeat for every branch your table merges in. If `git status` no longer says "You have unmerged paths.", you're done.
+
+> **Easier alternative if you're stuck:** GitHub's web UI can resolve simple conflicts directly in the browser. After pushing your branch, open the Pull Request page and look for a **"Resolve conflicts"** button. You'll get a side-by-side editor with the conflict markers visible — same idea, no terminal.
 
 ## Final Steps
 
 Once every profile is on a single branch that is hosted remotely, it's time to submit a pull request on the original repo. Note: This pull request will be on behalf of your entire table.
 
-- The first step is to go to the forked repo.
-- The next step is to navigate to the branch with all three or four profiles. You can do this by clicking on the ![branches](http://ironboard-curriculum-content.s3.amazonaws.com/web-development/deploy-on-day-1/branches.png) dropdown and select the name of the branch that has all the profiles.
-- From this new view, click on ![pull request](http://ironboard-curriculum-content.s3.amazonaws.com/web-development/deploy-on-day-1/pull-request.png) on the right-hand menu. The green button with two arrows that looks like this ![green pull request](http://ironboard-curriculum-content.s3.amazonaws.com/web-development/deploy-on-day-1/green-button.png) will also work.
-- On this new page, click the green button that says "New pull request". This will take you to a form.
-  Fill out the form and click "Submit".
+- Go to the forked repo on github.com.
+- Click the **branch dropdown** (the button labeled `main` near the top-left of the file list) and select the branch that has all your table's profiles merged into it.
+- Click the **"Contribute"** button (just above the file list, near the right) → **"Open pull request"**. GitHub will also often show a yellow banner like *"This branch is X commits ahead of `<original-repo>:main`"* with a **"Compare & pull request"** button — that works too.
+- On the **Open a pull request** page, double-check the base repo (left dropdown) is the *original* `ttpr-lgcc` repo and the head is *your fork's* combined branch. Write a short description of who's on the branch, then click **"Create pull request"**.
 
 Congratulations, you've completed your first assignment!
 
@@ -269,8 +344,22 @@ Note: From now on, most assignments will be completed in a group but submitted i
 
 ## Issues
 
-A common issue is not being able to authenticate with GitHub. You need to use HTTPS/SSH correctly when cloning the repository in order to be authenticated with GitHub. Checkout and follow:
+### Common Pitfalls
 
-- [Setting Up Git](https://help.github.com/articles/set-up-git)
-- [HTTPS Cloning Errors](https://help.github.com/articles/https-cloning-errors)
-- [Setting Up SSH](https://help.github.com/articles/generating-ssh-keys)
+If you're stuck, scan this list before flagging an instructor — odds are good your symptom is here.
+
+- **"My image isn't showing up."** Check the case of the filename. `Zoe.JPG` ≠ `zoe.jpg`. Also check the path: pictures live in `img/students/`, and from `students/your_page.html` the relative path is `../img/students/<filename>`.
+- **"I edited `student_name.html` directly."** That's the template — *copy* it to `students/<your_student>.html` first, then edit the copy. If you've already saved over it, run `git checkout student_name.html` to restore it before committing.
+- **"`git push` says `permission denied` or asks for a password that doesn't work."** You almost certainly cloned the *original* repo instead of *your tablemate's fork*. Run `git remote -v`. The URL should contain your tablemate's GitHub username, not `ttpr-lgcc`. If it doesn't, fix it with `git remote set-url origin https://github.com/<tablemate>/deploy-on-day-1-ttpr.git`.
+- **"I can't push to `main`/`master`."** Good — you're not supposed to. Branches: `git checkout -b zoe-perez`, then `git push -u origin zoe-perez`.
+- **"My branch isn't showing up on github.com."** You probably committed but didn't push. Run `git push -u origin <branch-name>`.
+- **"There are merge conflicts in `index.html` and I want to give up."** Read the [Merge Conflicts](#merge-conflicts) section above — for this lab, you almost always want to keep both `<li>` tiles. The `Resolve conflicts` button on GitHub's PR page is often the fastest way out.
+- **"My tile shows up but the link goes 404."** Check the `<a href>` in `index.html`. For Path A it's `students/<name>.html` (no leading slash). For Path B it's the full deployed URL ending in `/`.
+
+### Authentication
+
+A common issue is not being able to authenticate with GitHub. You need to use HTTPS/SSH correctly when cloning the repository in order to be authenticated with GitHub. Check out and follow:
+
+- [Setting Up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
+- [HTTPS Cloning Errors](https://docs.github.com/en/get-started/git-basics/troubleshooting-cloning-errors)
+- [Setting Up SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
