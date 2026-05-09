@@ -8,17 +8,18 @@ resources:
 
 ## Contents
 
-| Section                             |
-| ----------------------------------- |
-| [History](#history)                 |
-| [Assignment](#assignment)           |
-| [Requirements](#requirements)       |
-| [File Structure](#structure)        |
-| [Getting Started](#getting-started) |
-| [Next Steps](#next-steps)           |
-| [Final Steps](#final-steps)         |
-| [Resources](#resources)             |
-| [Issues](#issues)                   |
+| Section                              |
+| ------------------------------------ |
+| [History](#history)                  |
+| [Assignment](#assignment)            |
+| [Choose Your Path](#choose-your-path)|
+| [Requirements](#requirements)        |
+| [File Structure](#structure)         |
+| [Getting Started](#getting-started)  |
+| [Next Steps](#next-steps)            |
+| [Final Steps](#final-steps)          |
+| [Resources](#resources)              |
+| [Issues](#issues)                    |
 
 ## History
 
@@ -31,6 +32,27 @@ Your assignment is to create a student profile for someone sitting at your table
 Now if you're anything like me, you might be freaking out and wondering, "Am I making a webapp?!?!" The answer is no. You're just working with HTML and file structures. You don't need to know Rails, JavaScript, or even Ruby for this project. No need to freak out. Calm down! Seriously, you're making the rest of us nervous!!!
 
 You'll have about three hours to complete the first section of this lab. Use that time to get to know your table, get familiar with git workflows, and re-familiarizing yourself with HTML. If you feel stuck, ask any instructor for help. **Keep in mind everyone in your table will be pushing to the same repository.** Think about using a workflow with your teammates that will minimize conflicts.
+
+## Choose Your Path
+
+There are **two ways** to get your assigned student onto the index page. Pick whichever fits where you are in the curriculum — both end with the student's tile on `index.html` linking somewhere meaningful.
+
+### Path A — Build the profile page in this repo
+
+This is the traditional flow described below. You'll add an HTML file to `students/`, drop pictures into `img/students/`, and the tile on `index.html` links to your new in-repo page (e.g. `students/zoe_perez.html`). Use this path if your student doesn't have a portfolio of their own yet.
+
+### Path B — Link to their deployed portfolio
+
+If your student has already worked through the [`ttpr-lgcc/html-student-portfolio`](https://github.com/ttpr-lgcc/html-student-portfolio) lab, they can deploy that portfolio to GitHub Pages and you link to it directly from this index. No new file in `students/` required.
+
+The rough shape of Path B (you'll have to figure out the exact steps — that's part of the challenge):
+
+1. Make sure your student's fork of `ttpr-lgcc/html-student-portfolio` is deployed via GitHub Pages (repo **Settings → Pages**, source: their default branch). The published URL will look like `https://<their-github-username>.github.io/html-student-portfolio/`.
+2. Visit that URL in a browser and confirm it loads.
+3. Drop their index/profile picture into `img/students/` like in Path A.
+4. In this repo's `index.html`, duplicate the existing student `<li class="home-blog-post">` block, but point both `<a href>` attributes at the deployed portfolio URL instead of `students/<name>.html`.
+
+Either path should result in a working clickable tile on `index.html`.
 
 ## Requirements
 
@@ -77,15 +99,22 @@ The structure of this project looks something like this:
 
 ### Files you will need to alter:
 
-- The only file you'll alter is `index.html`.
+- You'll always alter `index.html` to add a tile for your student.
 
 ### Files you will need to add:
+
+**For Path A (in-repo profile):**
 
 - Add three pictures to the `img/students` folder (they can be jpg or png files):
   - A background picture
   - A picture for the index page
   - A picture for the profile page
 - Add one HTML file to the `students/` folder. Use the `student_name.html` for reference. In fact, feel free to copy as much of the HTML from `student_name.html` into the new file you've created (just don't rename / override that file, as that will cause you some git headaches).
+
+**For Path B (linking to a deployed portfolio):**
+
+- Add only one picture to `img/students/` for the index tile.
+- No file in `students/` — the tile's `<a href>` points directly at the deployed `html-student-portfolio` URL.
 
 ## Getting Started
 
@@ -122,6 +151,10 @@ Take a look at `index.html` and `students/student_name.html` in the browser. You
 
 #### Add Profile
 
+The next steps depend on which path you picked above.
+
+##### Path A — In-repo profile
+
 - In this new branch, make a new HTML file in the `students/` folder. The file name should be the name of the student you're creating the profile for. Use the file `student_name.html` to see an example of what a profile's HTML could look like.
 
   - For instance, we would create a file `zoe_perez.html` in the main `students` folder.
@@ -131,7 +164,13 @@ Take a look at `index.html` and `students/student_name.html` in the browser. You
   - For instance, we would add the pictures titled `zoe_perez_background.jpg`, `zoe_perez_index.jpg`, and `zoe_perez_profile.jpg` to the `students` folder that is inside the `img` folder.
   - File endings are case senstive. When adding an \<image\> tag, make sure that the image source is identical to the name of the image file.
 
-- Once you've completed the profile, open up `index.html`. Use the prexisting template as a model and add a section for your fellow student.
+- Once you've completed the profile, open up `index.html`. Use the prexisting template as a model and add a section for your fellow student. Both `<a href>` attributes in the tile should point at `students/<their_name>.html`.
+
+##### Path B — Linked deployed portfolio
+
+- Confirm your student's [`html-student-portfolio`](https://github.com/ttpr-lgcc/html-student-portfolio) fork is deployed and reachable at `https://<their-github-username>.github.io/html-student-portfolio/`. If it isn't, walk them through enabling GitHub Pages in **Settings → Pages**.
+- Add a single index picture for them to `img/students/` (e.g. `zoe_perez.jpg`).
+- Open `index.html`. Duplicate the existing student tile and replace both `<a href>` values with the deployed portfolio URL, the `<img src>` with your new picture path, and the name/tagline text with theirs.
 
 #### Stage and Commit Changes
 
@@ -209,6 +248,9 @@ Note: From now on, most assignments will be completed in a group but submitted i
 
 ## Resources
 
+- Companion lab
+  - [`ttpr-lgcc/html-student-portfolio`](https://github.com/ttpr-lgcc/html-student-portfolio) — the portfolio repo referenced by Path B
+  - [Configuring GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) — how to deploy a static site from a repo
 - Git Step Resources
   - [Forking a Repo](https://help.github.com/articles/fork-a-repo)
   - [Cloning a Repo](http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository#Cloning-an-Existing-Repository)
